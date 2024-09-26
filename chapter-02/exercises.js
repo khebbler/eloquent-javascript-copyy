@@ -114,9 +114,32 @@ LOGS =>
 */
 
 function drawChessboard(x) {
+  // initializing empty string for chessboard
+  let board = "";
 
+  // outer loop 
+  for (let i = 0; i < x; i++) {
+    // initialize empty string for row
+    let row = "";
 
+    // inner loop
+    for (let j = 0; j < x; j++) {
+      // checking whether sum is even
+      if ((i + j) % 2 === 0) {
+        // if even add space
+        row += " ";
+      } else {
+        // if odd add #
+        row += "#";
+      }
+    }
+    // adding row to board with a newline char
+    board += row + "\n";
+  }
+  // logging board
+  console.log(board);
 }
+console.log(drawChessboard(3));
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
