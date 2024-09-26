@@ -26,7 +26,8 @@ LOGS =>
 
 */
 
-function triangles() {
+function triangles(number) { 
+
   
 }
 
@@ -47,8 +48,29 @@ on the number:
   - if the number is not divisible by 3 or 5, log the number
 */
 
-function fizzBuzz(start, end) {
-  
+function fizzBuzz(start, end) { 
+  // looping from start to end
+  for (var i = start; i <= end; i++) {
+    // if number is divisible by both 3 & 5
+    if (i % 3 === 0 && i % 5 === 0) {
+      // log fizzbuzz
+      console.log("fizzbuzz");
+    }
+    // if number is divisible by 3
+    else if (i % 3 === 0) {
+      // log fizz
+      console.log("fizz");
+    }
+    else if (i % 5 === 0) {
+      // log buzz
+      console.log("buzz");
+    }
+    // if number is not divisible by 5
+    else {
+      // log number
+      console.log(i);
+    }
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
