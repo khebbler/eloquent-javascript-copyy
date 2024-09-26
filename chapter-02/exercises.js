@@ -27,8 +27,18 @@ LOGS =>
 */
 
 function triangles(number) { 
+  // initializing empty string for "levels"
+  var level = "";
 
-  
+  // Looping from 1 to input number
+  for (let i = 1; i <= number; i++) {
+    // concatenating # to level
+    level += '#'
+    // logging each level to console
+    console.log(level);
+  }
+
+ 
 }
 
 
