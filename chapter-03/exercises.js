@@ -22,8 +22,21 @@ function min(arg1, arg2) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function isEven(number) {
-  // if number is even
+  // negative to positive
+  if (number < 0) {
+    number = -number
+  }
 
+  // base if even
+  if (number === 0) {
+    return true;
+  }
+  // base if odd
+  if (number === 1) {
+    return false;
+  }
+  // recursion
+  return isEven(number - 2);
 
 
 }
@@ -32,7 +45,9 @@ function isEven(number) {
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
+function countChars(string, char) {
+  var counted = 0;
+
 
 }
 
