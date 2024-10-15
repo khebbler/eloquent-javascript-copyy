@@ -2,7 +2,32 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(start, end, step = 1) {
+  // if start and end are the same
+  if (start === end) {
+    return [];
+  }
+
+  // storage array
+  let result = [];
+
+  // positive
+  if (step > 0) {
+    for (let i = start; i <= end; i += step) {
+      result.push(i);
+    }
+  }
+
+  // negative
+  else if (step < 0) {
+    for (let i = start; i >= end; i += step) {
+      result.push(i);
+    }
+  }
+
+  // returning updated
+  return result;
+
 
 }
 
@@ -10,7 +35,11 @@ function range() {
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
+function sum(array) {
+  // summing array using reduc
+  return array.reduce(function(acc, current) {
+    return acc + current;
+  }, 0);  
 
 }
 
@@ -18,15 +47,24 @@ function sum() {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
-
+function reverseArray(array) {
+  return array.slice().reverse();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
+function reverseArrayInPlace(array) {
+  // Looping through first half of array
+  for (let i = 0; i < Math.floor(array.length / 2); i++) {
+    let old = array[i];
+    // swapping elements
+    array[i] = array[array.length - 1 - i];
+    array[array.length - 1 - i] = old;
+  }
+  // returning updated
+  return array;
 
 }
 
@@ -34,7 +72,14 @@ function reverseArrayInPlace() {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
+function arrayToList(array) {
+  let list = null;
+  // Looping through array backwards
+  for (let i = array.length - 1; i >= 0; i--) {
+    list = {value: array[i], rest: list};
+  }
+  // returning updated
+  return list;
 
 }
 
@@ -42,7 +87,16 @@ function arrayToList() {
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(list) {
+  // storage
+  let array = [];
+  // Looping through list
+  for (let i = list; i; i = i.rest) {
+    // adding value to array
+    array.push(i.value);
+  }
+  // returning updated
+  return array;
 
 }
 
@@ -50,16 +104,22 @@ function listToArray() {
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(value, list) {
+  return {value, rest: list};
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(list, n) {
+  // base
+  if (!list) return undefined;
+  // returning  value at current list element
+  else if (n == 0) return list.value;
+  // recursion
+  // moving to the next element and reducing n by 1
+  else return nth(list.rest, n - 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
